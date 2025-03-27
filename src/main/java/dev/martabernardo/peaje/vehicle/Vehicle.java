@@ -17,4 +17,8 @@ public class Vehicle {
         return vehicleId;
     }
 
+    public int calculatePayment() {
+        return 0;
+    }
+
 }
