@@ -8,13 +8,20 @@ import jakarta.persistence.Table;
 public class Station {
 
     private String name;
-
-    public Station(String name) {
+    private String city;
+    
+    
+    public Station(String name, String city) {
         this.name = name;
+        this.city = city;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getCity() {
+        return city;
     }
 
 }
