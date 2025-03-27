@@ -14,4 +14,11 @@ public class VehicleTest {
         String vehicleId = vehicle.getVehicleId();
         assertThat(vehicleId, is("1234MNL"));
     }
+    @Test
+    @DisplayName("Test calculatePayment")
+    public void calculatePaymentTest() {
+        Vehicle vehicle = new Vehicle("1234MNL");
+        int payment = vehicle.calculatePayment();
+        assertThat(payment, is(0));
+    }
 }
