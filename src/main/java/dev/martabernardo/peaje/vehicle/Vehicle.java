@@ -5,7 +5,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "vehicle")
-public class Vehicle {
+public abstract class Vehicle {
     
     private String vehicleId;
 
@@ -17,8 +17,5 @@ public class Vehicle {
         return vehicleId;
     }
 
-    public int calculatePayment() {
-        return 0;
-    }
-
+    public abstract int calculatePayment();  
 }
