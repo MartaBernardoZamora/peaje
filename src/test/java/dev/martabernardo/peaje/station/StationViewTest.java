@@ -17,7 +17,7 @@ public class StationViewTest {
     void printStationTest() {
         StationView view = new StationView();
         System.setOut(new PrintStream(outContent));
-        view.printStationName(new Station("Norte", "Oviedo"));
+        view.printStation(new Station("Norte", "Oviedo"));
 
         String output = outContent.toString();
 
