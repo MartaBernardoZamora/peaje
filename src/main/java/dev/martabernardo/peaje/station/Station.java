@@ -50,4 +50,8 @@ public class Station {
     public String getCity() {
         return city;
     }
+
+    public long getId() {
+        return id;
+    }
 }
