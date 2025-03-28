@@ -2,8 +2,11 @@ package dev.martabernardo.peaje.station;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import dev.martabernardo.peaje.vehicle.VehicleDTOSummary;
 
+@Component
 public class StationView {
 
     public void printStation(Station station) {
