@@ -1,8 +1,10 @@
 package dev.martabernardo.peaje.station;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import dev.martabernardo.peaje.vehicle.Vehicle;
+import dev.martabernardo.peaje.vehicle.VehicleDTOSummary;
 
 public class StationService {
 
@@ -12,11 +14,15 @@ public class StationService {
         this.stationRepository = stationRepository;
     }
 
-    public Set<Vehicle> getVehicleList(long l) {
+    public List<VehicleDTOSummary> getVehicleList(long stationId){
 
-        return stationRepository.findById(l).orElseThrow().getVehicles();
+        return stationRepository.findById(stationId)
+            .orElseThrow()
+            .getVehicles()
+            .stream()
+            .map(VehicleDTOSummary::from)
+            .collect(Collectors.toList());
 
     }
-    
 
 }
