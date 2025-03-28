@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class Moto extends Vehicle{
+
+    public Moto() {}
     public Moto(String vehicleId) {
         super(vehicleId);
     }

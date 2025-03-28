@@ -33,7 +33,7 @@ public class StationControllerTest {
     @DisplayName("Test getStationData")
     void getStationDataTest(){
 
-        StationController stationController = new StationController(service);
+        StationController stationController = new StationController(service, view);
         List<VehicleDTOSummary> vehicles = List.of(new VehicleDTOSummary("CAR001", 100, "Car"),
             new VehicleDTOSummary("MOTO001", 50, "Moto"),
             new VehicleDTOSummary("TRK001", 150, "Truck"));
@@ -54,7 +54,7 @@ public class StationControllerTest {
     @DisplayName("Test getTotalPayment")
     void getTotalPaymentTest(){
 
-        StationController stationController = new StationController(service);
+        StationController stationController = new StationController(service, view);
 
         when(service.getTotalPayment(1L)).thenReturn(300);
 

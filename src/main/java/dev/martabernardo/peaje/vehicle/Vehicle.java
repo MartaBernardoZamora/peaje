@@ -13,6 +13,8 @@ public abstract class Vehicle {
     @Id
     private String vehicleId;
 
+    public Vehicle() {}
+
     public Vehicle(String vehicleId) {
         this.vehicleId = vehicleId;
     }
