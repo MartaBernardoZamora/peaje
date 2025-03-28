@@ -71,4 +71,20 @@ public class StationServiceTest {
         assertThat(totalPayment, is(300));
         verify(stationRepository).findById(1L); 
     }
+    
+    @Test
+    @DisplayName("Test getAllStations")
+    void getAllStationsTest() {
+        StationService stationService = new StationService(stationRepository);
+
+        Station station1 = new Station("Peaje Norte", "Oviedo");
+        Station station2 = new Station("Peaje Sur", "Sevilla");
+
+        when(stationRepository.findAll()).thenReturn(List.of(station1, station2));
+
+        List<Station> allStations = stationService.getAllStations();
+        assertThat(allStations, notNullValue());
+        assertThat(allStations, hasSize(2));
+        verify(stationRepository).findAll(); 
+    }
 }

@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 import dev.martabernardo.peaje.vehicle.VehicleDTOSummary;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class StationService {
 
     private final StationRepository stationRepository;
@@ -29,6 +32,10 @@ public class StationService {
         return vehicles.stream()
             .mapToInt(VehicleDTOSummary::payment)
             .sum();
+    }
+
+    public List<Station> getAllStations() {
+        return stationRepository.findAll();
     }   
 
 }

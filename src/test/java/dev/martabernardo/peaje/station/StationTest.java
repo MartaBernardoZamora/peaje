@@ -3,6 +3,7 @@ package dev.martabernardo.peaje.station;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -25,6 +26,9 @@ public class StationTest {
     private StationRepository stationRepository;
 
     private Station station;
+
+    @Mock
+    private Station mockStation;
 
     @BeforeEach
     public void setUp() {
@@ -59,5 +63,15 @@ public class StationTest {
         assertThat(vehicles.size(), is(1));
 
         verify(stationRepository).findById(1L);
+    }
+    @Test
+    @DisplayName("getId devuelve el ID asignado tras persistencia")
+    void getIdTest() {  
+        when(mockStation.getId()).thenReturn(1L);
+        when(stationRepository.save(any())).thenReturn(mockStation);
+
+        Station saved = stationRepository.save(new Station("Norte", "Oviedo"));
+
+        assertThat(saved.getId(), is(1L));
     }
 }
