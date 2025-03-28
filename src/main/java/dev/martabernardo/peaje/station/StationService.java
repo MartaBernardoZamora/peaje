@@ -32,6 +32,10 @@ public class StationService {
         return vehicles.stream()
             .mapToInt(VehicleDTOSummary::payment)
             .sum();
+    }
+
+    public List<Station> getAllStations() {
+        return stationRepository.findAll();
     }   
 
 }
