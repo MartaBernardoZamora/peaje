@@ -18,4 +18,8 @@ public class StationView {
         }
     }
 
+    public void printTotalPayment(int payment) {
+        System.out.println("Recaudación TOTAL: " + payment);
+    }
+
 }
