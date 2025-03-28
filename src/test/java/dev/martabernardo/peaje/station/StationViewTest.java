@@ -40,4 +40,15 @@ public class StationViewTest {
         assertThat(output, containsString("Car"));
         System.setOut(originalOut);
     }
+
+    @Test
+    @DisplayName("Test printTotalPayment")
+    void printTotalPaymentTest() {
+        StationView view = new StationView();
+        System.setOut(new PrintStream(outContent));
+        view.printTotalPayment(100);
+        String output = outContent.toString();
+        assertThat(output, containsString("100"));
+        System.setOut(originalOut);
+    }
 }
