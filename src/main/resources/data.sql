@@ -25,3 +25,15 @@ INSERT INTO moto (vehicle_id) VALUES
 INSERT INTO truck (vehicle_id, axlex) VALUES 
     ('LMN9999', 2),
     ('TCK8000', 3);
+
+INSERT INTO station_vehicle (station_id, vehicle_id) VALUES
+    (1, 'LMN9999'),
+    (2, 'XYZ5678'),
+    (2, 'TCK8000'),
+    (3, 'CAR3333'),
+    (2, 'LMN9999'),
+    (3, 'MTR7890'),
+    (2, 'MTR4567'),
+    (3, 'ABC1234'),
+    (3, 'TCK8000'),
+    (1, 'MTR7890');
