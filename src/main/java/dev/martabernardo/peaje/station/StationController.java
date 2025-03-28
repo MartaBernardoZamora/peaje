@@ -11,11 +11,11 @@ public class StationController {
         this.stationService = stationService;
     }
 
-    public void getAllData(long l) {
-        stationService.getVehicleList(l);
+    public void getStationData(long stationId) {
+        stationService.getVehicleList(stationId);
     }
 
-    
-
-
+    public int getTotalPayment(long stationId) {
+        return stationService.getTotalPayment(stationId);
+    }
 }
