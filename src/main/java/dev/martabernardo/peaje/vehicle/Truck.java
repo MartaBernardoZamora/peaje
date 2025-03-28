@@ -1,5 +1,8 @@
 package dev.martabernardo.peaje.vehicle;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Truck extends Vehicle{
 
     private int axlex;
