@@ -1,7 +1,6 @@
 package dev.martabernardo.peaje.station;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import dev.martabernardo.peaje.vehicle.VehicleDTOSummary;
@@ -24,5 +23,12 @@ public class StationService {
             .collect(Collectors.toList());
 
     }
+
+    public int getTotalPayment(long stationId){
+        List<VehicleDTOSummary> vehicles = getVehicleList(stationId);
+        return vehicles.stream()
+            .mapToInt(VehicleDTOSummary::payment)
+            .sum();
+    }   
 
 }
