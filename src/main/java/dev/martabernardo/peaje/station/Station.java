@@ -1,10 +1,17 @@
 package dev.martabernardo.peaje.station;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import dev.martabernardo.peaje.vehicle.Vehicle;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +31,17 @@ public class Station {
         this.name = name;
         this.city = city;
     }
+    @ManyToMany
+    @JoinTable(
+        name = "station_vehicle",
+        joinColumns = @JoinColumn(name = "station_id"),
+        inverseJoinColumns = @JoinColumn(name = "vehicle_id")
+    )
+    private Set<Vehicle> vehicles = new HashSet<>();
+
+    public Set<Vehicle> getVehicles() {
+        return vehicles;
+    }
 
     public String getName() {
         return name;
@@ -32,9 +50,4 @@ public class Station {
     public String getCity() {
         return city;
     }
-
-    public Long getId() {
-        return id;
-    }
-
 }
